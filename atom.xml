@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xin</title>
+  
+  
+  <link href="https://xxzxd.gitee.io/atom.xml" rel="self"/>
+  
+  <link href="https://xxzxd.gitee.io/"/>
+  <updated>2023-10-09T07:10:25.757Z</updated>
+  <id>https://xxzxd.gitee.io/</id>
+  
+  <author>
+    <name>liuxin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PDF资源</title>
+    <link href="https://xxzxd.gitee.io/2023/10/09/2099-01-01-pdf-zi-yuan/"/>
+    <id>https://xxzxd.gitee.io/2023/10/09/2099-01-01-pdf-zi-yuan/</id>
+    <published>2023-10-09T06:57:01.960Z</published>
+    <updated>2023-10-09T07:10:25.757Z</updated>
+    
+    
+    <summary type="html">收录一些pdf的资源，不做商用</summary>
+    
+    
+    
+    <category term="java" scheme="https://xxzxd.gitee.io/categories/java/"/>
+    
+    
+    <category term="资源" scheme="https://xxzxd.gitee.io/tags/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统核心知识点大梳理</title>
+    <link href="https://xxzxd.gitee.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/"/>
+    <id>https://xxzxd.gitee.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/</id>
+    <published>2023-10-09T02:11:53.487Z</published>
+    <updated>2023-10-09T02:12:29.289Z</updated>
+    
+    
+    <summary type="html">转载链接：https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ</summary>
+    
+    
+    
+    <category term="计算机基础" scheme="https://xxzxd.gitee.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="操作系统" scheme="https://xxzxd.gitee.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/"/>
+    <id>https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/</id>
+    <published>2023-10-09T02:09:38.608Z</published>
+    <updated>2023-10-09T02:11:20.704Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;计算机网络核心知识点&quot;&gt;&lt;a href=&quot;#计算机网络核心知识点&quot; class=&quot;headerlink&quot; title=&quot;计算机网络核心知识点&quot;&gt;&lt;/a&gt;计算机网络核心知识点&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;作者：月伴飞鱼，转载链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机基础" scheme="https://xxzxd.gitee.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="计算机网络" scheme="https://xxzxd.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql安装</title>
+    <link href="https://xxzxd.gitee.io/2023/09/18/mysql-an-zhuang/"/>
+    <id>https://xxzxd.gitee.io/2023/09/18/mysql-an-zhuang/</id>
+    <published>2023-09-18T12:05:08.667Z</published>
+    <updated>2021-03-10T09:21:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;​        大家好，因为我安装过一次但是中途需要其他版本的mysql因此卸了重装，但是因为卸载有残留导致一直安装不了，网上找了很多解决办法，然后有一些经验，想来分享给大家。&lt;/p&gt;
+&lt;p&gt;​       </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://xxzxd.gitee.io/2023/09/18/hello-world/"/>
+    <id>https://xxzxd.gitee.io/2023/09/18/hello-world/</id>
+    <published>2023-09-18T12:05:08.637Z</published>
+    <updated>2021-01-26T05:22:56.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis高阶</title>
+    <link href="https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/"/>
+    <id>https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/</id>
+    <published>2023-03-21T16:00:00.000Z</published>
+    <updated>2023-09-20T10:29:40.526Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、redis是单线程吗&quot;&gt;&lt;a href=&quot;#一、redis是单线程吗&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis篇</title>
+    <link href="https://xxzxd.gitee.io/2023/03/03/2023-03-03-redis-pian/"/>
+    <id>https://xxzxd.gitee.io/2023/03/03/2023-03-03-redis-pian/</id>
+    <published>2023-03-02T16:00:00.000Z</published>
+    <updated>2023-09-19T17:02:26.615Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;一、概念&quot;&gt;&lt;a href=&quot;#一、概念&quot; class=&quot;headerlink&quot; title=&quot;一、概念&quot;&gt;&lt;/a&gt;一、概念&lt;/h1&gt;&lt;h2 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>webSocket篇</title>
+    <link href="https://xxzxd.gitee.io/2022/07/13/2022-07-13-websocket-pian/"/>
+    <id>https://xxzxd.gitee.io/2022/07/13/2022-07-13-websocket-pian/</id>
+    <published>2022-07-12T16:00:00.000Z</published>
+    <updated>2022-07-13T15:31:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-websocket概念&quot;&gt;&lt;a href=&quot;#一-websocket概念&quot; class=&quot;headerlink&quot; title=&quot;一. websocket概念&quot;&gt;&lt;/a&gt;一.</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>多线程篇</title>
+    <link href="https://xxzxd.gitee.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/"/>
+    <id>https://xxzxd.gitee.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/</id>
+    <published>2022-07-07T16:00:00.000Z</published>
+    <updated>2023-09-19T17:02:26.151Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一-前言&quot;&gt;&lt;a href=&quot;#一-前言&quot; class=&quot;headerlink&quot; title=&quot;一. 前言&quot;&gt;&lt;/a&gt;一. 前言&lt;/h2&gt;&lt;h3 id=&quot;1-进程和线程&quot;&gt;&lt;a href=&quot;#1-进程和线程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>树篇</title>
+    <link href="https://xxzxd.gitee.io/2022/07/04/2022-07-04-shu-pian/"/>
+    <id>https://xxzxd.gitee.io/2022/07/04/2022-07-04-shu-pian/</id>
+    <published>2022-07-03T16:00:00.000Z</published>
+    <updated>2022-07-13T15:31:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-概念&quot;&gt;&lt;a href=&quot;#一-概念&quot; class=&quot;headerlink&quot; title=&quot;一. 概念&quot;&gt;&lt;/a&gt;一. 概念&lt;/h1&gt;&lt;p&gt;树就是一种类似现实生活中的树的数据结构（倒置的树），常见的树有二叉树与多叉树&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GC篇</title>
+    <link href="https://xxzxd.gitee.io/2022/06/29/2022-06-29-gc-pian/"/>
+    <id>https://xxzxd.gitee.io/2022/06/29/2022-06-29-gc-pian/</id>
+    <published>2022-06-28T16:00:00.000Z</published>
+    <updated>2023-09-19T17:02:25.728Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-GC常见问题&quot;&gt;&lt;a href=&quot;#一-GC常见问题&quot; class=&quot;headerlink&quot; title=&quot;一. GC常见问题&quot;&gt;&lt;/a&gt;一.</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JVM篇</title>
+    <link href="https://xxzxd.gitee.io/2022/06/28/2022-06-28-jvm-pian/"/>
+    <id>https://xxzxd.gitee.io/2022/06/28/2022-06-28-jvm-pian/</id>
+    <published>2022-06-27T16:00:00.000Z</published>
+    <updated>2022-06-28T11:56:38.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-什么是JVM&quot;&gt;&lt;a href=&quot;#一-什么是JVM&quot; class=&quot;headerlink&quot; title=&quot;一.  什么是JVM&quot;&gt;&lt;/a&gt;一. </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>springOauth2</title>
+    <link href="https://xxzxd.gitee.io/2022/06/22/2022-06-22-springauth2/"/>
+    <id>https://xxzxd.gitee.io/2022/06/22/2022-06-22-springauth2/</id>
+    <published>2022-06-21T16:00:00.000Z</published>
+    <updated>2023-09-19T17:02:25.439Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-Oauth2简介&quot;&gt;&lt;a href=&quot;#一-Oauth2简介&quot; class=&quot;headerlink&quot; title=&quot;一. Oauth2简介&quot;&gt;&lt;/a&gt;一. Oauth2简介&lt;/h1&gt;&lt;h2 id=&quot;1-1-什么是OAuth2&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch</title>
+    <link href="https://xxzxd.gitee.io/2022/04/12/elastic-search/"/>
+    <id>https://xxzxd.gitee.io/2022/04/12/elastic-search/</id>
+    <published>2022-04-12T02:50:03.000Z</published>
+    <updated>2023-09-19T17:02:27.479Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-全文检索基础&quot;&gt;&lt;a href=&quot;#一-全文检索基础&quot; class=&quot;headerlink&quot; title=&quot;一.全文检索基础&quot;&gt;&lt;/a&gt;一.全文检索基础&lt;/h1&gt;&lt;h2 id=&quot;1-什么是全文检索&quot;&gt;&lt;a href=&quot;#1-什么是全文检索&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>KKB项目</title>
+    <link href="https://xxzxd.gitee.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/"/>
+    <id>https://xxzxd.gitee.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/</id>
+    <published>2021-09-05T11:52:10.000Z</published>
+    <updated>2021-09-05T11:52:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-目标&quot;&gt;&lt;a href=&quot;#一-目标&quot; class=&quot;headerlink&quot; title=&quot;一.目标&quot;&gt;&lt;/a&gt;一.目标&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/09/05/vGt64haRsVWk3ef.png&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-Cloud</title>
+    <link href="https://xxzxd.gitee.io/2021/05/26/spring-cloud/"/>
+    <id>https://xxzxd.gitee.io/2021/05/26/spring-cloud/</id>
+    <published>2021-05-26T08:15:13.000Z</published>
+    <updated>2021-06-27T09:34:24.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Spring-Cloud简介&quot;&gt;&lt;a href=&quot;#Spring-Cloud简介&quot; class=&quot;headerlink&quot; title=&quot;Spring-Cloud简介&quot;&gt;&lt;/a&gt;Spring-Cloud简介&lt;/h1&gt;&lt;h2 id=&quot;微服务&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC</title>
+    <link href="https://xxzxd.gitee.io/2021/05/21/spring-mvc/"/>
+    <id>https://xxzxd.gitee.io/2021/05/21/spring-mvc/</id>
+    <published>2021-05-21T11:15:36.000Z</published>
+    <updated>2021-06-27T09:35:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringMvc简介&quot;&gt;&lt;a href=&quot;#SpringMvc简介&quot; class=&quot;headerlink&quot; title=&quot;SpringMvc简介&quot;&gt;&lt;/a&gt;SpringMvc简介&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-boot</title>
+    <link href="https://xxzxd.gitee.io/2021/05/18/spring-boot/"/>
+    <id>https://xxzxd.gitee.io/2021/05/18/spring-boot/</id>
+    <published>2021-05-18T11:25:13.000Z</published>
+    <updated>2021-06-27T09:32:54.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h1&gt;&lt;p&gt;springboot是spring快速开发脚手架，通过约定大于配置的方式，快速构建和启动spring项目&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis</title>
+    <link href="https://xxzxd.gitee.io/2021/05/16/mybatis-ji-chu/"/>
+    <id>https://xxzxd.gitee.io/2021/05/16/mybatis-ji-chu/</id>
+    <published>2021-05-16T10:25:03.000Z</published>
+    <updated>2021-06-27T10:06:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Mybatis概述&quot;&gt;&lt;a href=&quot;#Mybatis概述&quot; class=&quot;headerlink&quot; title=&quot;Mybatis概述&quot;&gt;&lt;/a&gt;Mybatis概述&lt;/h1&gt;&lt;p&gt;MyBatis 本是 apache 的一个开源项目 ,是一个基于 Java</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nosql</title>
+    <link href="https://xxzxd.gitee.io/2021/05/11/nosql-ji-chu/"/>
+    <id>https://xxzxd.gitee.io/2021/05/11/nosql-ji-chu/</id>
+    <published>2021-05-11T11:25:13.000Z</published>
+    <updated>2021-06-27T09:29:58.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Nosql简介&quot;&gt;&lt;a href=&quot;#Nosql简介&quot; class=&quot;headerlink&quot; title=&quot;Nosql简介&quot;&gt;&lt;/a&gt;Nosql简介&lt;/h1&gt;&lt;p&gt;NoSQL，泛指非关系型的数据库。&lt;/p&gt;
+&lt;h2 id=&quot;为什么使用&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

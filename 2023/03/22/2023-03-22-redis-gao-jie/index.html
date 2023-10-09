@@ -1,0 +1,1606 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis高阶, Xin">
+    <meta name="description" content="一、redis是单线程吗redis在3.x版本及以前是单线程，但是在4.x以及以后引入了多线程，并且在redis6.x版本多线程成熟
+1. 为什么开始是单线程单线程是指网络IO和键值对读写是由一个线程来完成的。
+但Redis的其他功能，比如">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>redis高阶 | Xin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Xin" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Xin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Xin</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">redis高阶</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-09-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、redis是单线程吗"><a href="#一、redis是单线程吗" class="headerlink" title="一、redis是单线程吗"></a>一、redis是单线程吗</h2><p>redis在3.x版本及以前是单线程，但是在4.x以及以后引入了多线程，并且在redis6.x版本多线程成熟</p>
+<h3 id="1-为什么开始是单线程"><a href="#1-为什么开始是单线程" class="headerlink" title="1. 为什么开始是单线程"></a>1. 为什么开始是单线程</h3><p>单线程是指网络IO和键值对读写是由一个线程来完成的。</p>
+<p>但Redis的其他功能，比如持久化RDB、AOF、异步删除、集群数据同步等等，其实是由额外的线程或进程执行的。Redis命令工作线程是单线程的，但是，整个Redis来说，是多线程的；</p>
+<ul>
+<li>redis是基于内存来操作的，性能较高</li>
+<li>redis的数据结构是专门设计的，都是kv键值对，大部分复杂度都是o(1)</li>
+<li>redis使用I/O多路复用来监听多个socket客户端，这样一个线程就能处理多个socket请求，这样就减少了线程切换的开销，同时也避免了I/O阻塞操作</li>
+<li>单线程不会导致死锁发生</li>
+</ul>
+<h3 id="2-为什么是后续用多线程"><a href="#2-为什么是后续用多线程" class="headerlink" title="2. 为什么是后续用多线程"></a>2. 为什么是后续用多线程</h3><h4 id="2-1-单线程的瓶颈"><a href="#2-1-单线程的瓶颈" class="headerlink" title="2.1 单线程的瓶颈"></a>2.1 单线程的瓶颈</h4><ul>
+<li>单线程不会有死锁，但是会阻塞，尤其是有<strong>大key</strong>的情况下会造成阻塞、</li>
+<li>redis的性能瓶颈是内存与带宽而并非cpu，单线程永远只能使用到一核的cpu</li>
+</ul>
+<h4 id="2-2-多线程的引入"><a href="#2-2-多线程的引入" class="headerlink" title="2.2 多线程的引入"></a>2.2 多线程的引入</h4><p>为了解决上述问题，在redis4.0就新增了多线程操作，此多线程是为了解决删除效率比较低的问题。<strong>但从网络IO处理到实际的读写命令处理，都还是是由单个线程完成的。</strong></p>
+<p><strong>从redis6开始，正式引入多线程</strong>。随着网络硬件的性能提升，Redis的性能瓶颈有时会出现在网络IO的处理上，也就是说，单个主线程处理网络请求的速度跟不上底层网络硬件的速度。为了应对这个问题:<strong>采用多个IO线程来处理网络请求，提高网络请求处理的并行度，Redis6/7就是采用的这种方法。</strong></p>
+<p>但是，<strong>Redis的多IO线程只是用来处理网络请求的，对于读写操作命令Redis仍然使用单线程来处理。</strong>这是因为，Redis处理请求时，网络处理经常是瓶颈，通过多个IO线程并行处理网络操作，可以提升实例的整体处理性能。而继续使用单线程执行命令操作，就不用为了保证Lua脚本、事务的原子性，额外开发多线程互斥加锁机制了(不管加锁操作处理)，这样一来，Redis线程模型实现就简单了</p>
+<h4 id="2-3-如何工作"><a href="#2-3-如何工作" class="headerlink" title="2.3 如何工作"></a>2.3 如何工作</h4><p>多线程的引入说简单点就是，处理I/0用的多线程，但是对redis的读写还是单线程。</p>
+<h5 id="1-单线程时"><a href="#1-单线程时" class="headerlink" title="(1) 单线程时"></a>(1) 单线程时</h5><p>I/O 的读和写本身是堵塞的，比如当 socket 中有数据时，Redis 会通过调用先将数据从内核态空间拷贝到用户态空间，再交给 Redis 调用，而这个拷贝的过程就是阻塞的，当数据量越大时拷贝所需要的时间就越多，而这些操作都是基于单线程完成的。</p>
+<p><img src="https://s2.loli.net/2023/04/17/QWme9qyULBE1tZd.png" alt="单线程"></p>
+<h5 id="2-多线程时"><a href="#2-多线程时" class="headerlink" title="(2) 多线程时"></a>(2) 多线程时</h5><p>从Redis6开始，就新增了多线程的功能来提高 I/O 的读写性能，他的主要实现思路是将主线程的 IO 读写任务拆分给一组独立的线程去执行，这样就可以使多个 socket 的读写可以并行化了，采用多路 I/O 复用技术可以让单个线程高效的处理多个连接请求（尽量减少网络IO的时间消耗），将最耗时的Socket的读取、请求解析、写入单独外包出去，剩下的命令执行仍然由主线程串行执行并和内存的数据交互。</p>
+<p><img src="https://s2.loli.net/2023/04/17/K1kaX7FR4GEu2Wx.png" alt="多线程"></p>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>redis这么快的原因</p>
+<ul>
+<li>基于内存</li>
+<li>单线程避免切换</li>
+<li>IO多路复用 + epoll函数使用</li>
+</ul>
+<p>redis6/7的多线程是默认关闭的，如需要开启需要修改redis.conf中的THREADED I/O模块下</p>
+<h2 id="二、BigKey"><a href="#二、BigKey" class="headerlink" title="二、BigKey"></a>二、BigKey</h2><p>经典面试题：</p>
+<h3 id="1-大数据下的查询查询操作"><a href="#1-大数据下的查询查询操作" class="headerlink" title="1. 大数据下的查询查询操作"></a>1. 大数据下的查询查询操作</h3><ol>
+<li><p>为了防止在海量数据中使用到，<code>keys *</code>,<code>flushall</code>,<code>flushdb</code>等命令，如何操作？</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 直接禁用，在redis.conf的SECURITY模块下修改
+# 找到# rename-command CONFIG ""模块，在下面新增
+# 想把哪个命令禁用，就把它配置为空字符串
+# rename-command CONFIG ""
+  rename-command keys  ""
+  rename-command flushall  ""
+  rename-command flushdb  ""<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>不能用<code>keys *</code>,那应该用什么？</p>
+<p><a target="_blank" rel="noopener" href="https://redis.io/commands/scan/">官网</a></p>
+<p>SCAN命令和与之密切相关的SSCAN、HSCAN和ZSCAN命令是为了在一个元素集合上进行递增式迭代。<br>SCAN迭代当前选定的Redis数据库中的键集合。<br>SSCAN 迭代 Sets 类型的元素。<br>HSCAN 迭代 Hash 类型的字段和它们的相关值。<br>ZSCAN 迭代排序集类型的元素和它们的相关分数</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># cursor 游标
+# pattern 匹配模式
+# count 指定返回数量 默认为10 
+# type 数据类型 注意 zkey与geokey无法区分   因为geo数据类型也是zset
+SCAN cursor [MATCH pattern] [COUNT count] [TYPE type]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>SCAN 命令是一个基于游标的迭代器，每次被调用之后， 都会向用户返回一个新的游标， 用户在下次迭代时需要使用这个新游标作为 SCAN 命令的游标参数， 以此来延续之前的迭代过程。</p>
+<p>SCAN的遍历顺序非常特别，它不是从第一维数组的第零位一直遍历到末尾，而是采用了高位进位加法来遍历。之所以使用这样特殊的方式进行遍历，是考虑到字典的扩容和缩容时避免槽位的遍历重复和遗漏。</p>
+<p>使用案例：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">redis 127.0.0.1:6379&gt; scan 0
+1) "17"
+2)  1) "key:12"
+    2) "key:8"
+    3) "key:4"
+    4) "key:14"
+    5) "key:16"
+    6) "key:17"
+    7) "key:15"
+    8) "key:10"
+    9) "key:3"
+   10) "key:7"
+   11) "key:1"
+redis 127.0.0.1:6379&gt; scan 17
+1) "0"
+2) 1) "key:5"
+   2) "key:18"
+   3) "key:0"
+   4) "key:2"
+   5) "key:19"
+   6) "key:13"
+   7) "key:6"
+   8) "key:9"
+   9) "key:11"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>游标的使用，第一次从0开始，会返回一个新的游标和数据，第二次查询根据这个新的游标来查询，直到游标为0即遍历玩所有的key</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 游标为0 匹配为包含x字符 显示数量为10条 数据类型为set
+127.0.0.1:9999&gt; scan 0 MATCH *x* COUNT 10 TYPE set
+1) "6"
+2) 1) "sxin"
+   2) "sxin2"
+127.0.0.1:9999&gt; scan 6 MATCH *x* COUNT 10 TYPE set
+1) "23"
+2) 1) "sxin1"
+127.0.0.1:9999&gt; scan 23 MATCH *x* COUNT 10 TYPE set
+1) "0"
+2) (empty array)
+127.0.0.1:9999&gt; scan 0 MATCH *x* COUNT 100 TYPE set
+1) "0"
+2) 1) "sxin"
+   2) "sxin2"
+   3) "sxin1"
+127.0.0.1:9999&gt; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里我们可以看到，第一次匹配查询只查出两条，第二次又查出一条。是为什么呢？</p>
+<p>需要注意的是，<code>COUNT</code>参数只是控制每次迭代返回的键值对数量，并不保证每次返回的数量一定等于指定的<code>COUNT</code>值。实际返回的数量可能小于或者等于<code>COUNT</code>值。</p>
+</li>
+</ol>
+<h3 id="2-多大算bigkey"><a href="#2-多大算bigkey" class="headerlink" title="2.多大算bigkey"></a>2.多大算bigkey</h3><p>bigkey不是key大，而是key对应的value大</p>
+<p>string类型10kb就算大key</p>
+<p>list，hash，set元素个数超过5000就算dakey</p>
+<h3 id="3-Bigkey危害"><a href="#3-Bigkey危害" class="headerlink" title="3. Bigkey危害"></a>3. Bigkey危害</h3><ul>
+<li>内存不均，集群迁移困难</li>
+<li>超时删除，阻塞</li>
+<li>网络I/O阻塞</li>
+</ul>
+<h3 id="4-查询bigkey"><a href="#4-查询bigkey" class="headerlink" title="4. 查询bigkey"></a>4. 查询bigkey</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查询bigkey
+# 扫描整个钥匙空间，找到最大的钥匙以及
+# 每个键类型的平均大小。 你可以使用-i 0.1来休眠0.1秒
+# 每100条SCAN命令（通常不需要）。
+redis-cli --bigkeys
+
+# MEMORY USAGE命令报告了一个键和它的值在RAM中需要存储的字节数。
+# 返回字节数
+MEMORY USAGE key<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-如何删除"><a href="#5-如何删除" class="headerlink" title="5. 如何删除"></a>5. 如何删除</h3><p>string的bigkey可以用unlink异步删除</p>
+<p>除了string类型，其余用渐进式删除，利用hscan，zscan等，查出一部分删掉字段，最后删除空的key。</p>
+<p>案例：</p>
+<p><img src="https://s2.loli.net/2023/04/17/12VLFa7B56tvnSd.png" alt="hash删除"></p>
+<h3 id="6-如何调优"><a href="#6-如何调优" class="headerlink" title="6. 如何调优"></a>6. 如何调优</h3><p>在redis.conf中LAZY FREEING模块，可以配置在默认使用del时使用异步删除</p>
+<p><img src="https://s2.loli.net/2023/04/17/nO4pAVlJ25MCLY8.png" alt="image-20230324150815373"></p>
+<p>将这三个改为yes</p>
+<h2 id="三、布隆过滤器（BoolmFilter）"><a href="#三、布隆过滤器（BoolmFilter）" class="headerlink" title="三、布隆过滤器（BoolmFilter）"></a>三、布隆过滤器（BoolmFilter）</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>布隆过滤器(Bloom Filter) 是一种专门用来解决去重问题的高级数据结构。</p>
+<p>实质就是一个大型*<strong>位数组*</strong>和几个不同的无偏hash函数(无偏表示分布均匀)。由一个初值都为零的bit数组和多个个哈希函数构成，用来快速判断某个数据是否存在。但是跟 HyperLogLog 一样，它也一样有那么一点点不精确，也存在一定的误判概率</p>
+<p>布隆过滤器默认误差率为百分之三，可以手动设置误差率，误差率越小，所需的bit位越多，所需的hash函数越多</p>
+<h3 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h3><p><strong>添加key时</strong></p>
+<p>使用多个hash函数对key进行hash运算得到一个整数索引值，对位数组长度进行取模运算得到一个位置，<br>每个hash函数都会得到一个不同的位置，将这几个位置都置1就完成了add操作。</p>
+<p><strong>查询key时</strong></p>
+<p>只要有其中一位是零就表示这个key不存在，但如果都是1，则不一定存在对应的key。<br><strong><em>结论：**</em></strong>有，是可能有           无，是肯定无**</p>
+<h3 id="3-缺点"><a href="#3-缺点" class="headerlink" title="3. 缺点"></a>3. 缺点</h3><ul>
+<li>不能删除元素，删除元素会导致误判率增加，因为hash冲突，在同一个位置可能存在东西是共同的，删除的时候并不知道删除的是哪一个</li>
+<li>存在误判的可能不能精准过滤</li>
+</ul>
+<h2 id="四、分布式锁"><a href="#四、分布式锁" class="headerlink" title="四、分布式锁"></a>四、分布式锁</h2><p><a target="_blank" rel="noopener" href="https://redis.io/docs/manual/patterns/distributed-locks/">官网</a></p>
+<p>redis可以实现分布式锁,分布式锁的演化</p>
+<ul>
+<li>加锁 setnx，解锁 del，问题：服务宕机无法解锁，造成死锁</li>
+<li>给锁设置过期时间，问题：还没到解锁步骤，锁自动释放，当前线程会释放掉下一线程的锁</li>
+<li>释放锁的时候判断是不是自己的。问题：判断锁再释放的步骤不是原子操作，可能导致判断锁成功，要释放锁的时候锁过期了</li>
+<li>判断锁到释放锁用lua脚本实现原子操作，用lua脚本实现锁的续期功能</li>
+<li>可重入锁</li>
+</ul>
+<p>官方给出一个分布式锁的实现标准，redLock。</p>
+<h3 id="1-redlock"><a href="#1-redlock" class="headerlink" title="1. redlock"></a>1. redlock</h3><p>算法：假设有多个独立的主站，节点完全独立，尝试获取锁的线程会有以下结果步骤：</p>
+<ol>
+<li>获取当前时间，单位是毫秒</li>
+<li>尝试从多个节点中获得锁，所有节点中使用相同的键名和随机值，当在每个实例中设置锁时，客户端使用一个与总的锁自动释放时间相比很小的超时来获取它。例如，如果自动释放时间是10秒，超时可以在~ 5-50毫秒范围内。这可以防止客户端在试图与Redis节点对话时长时间受阻：如果一个实例不可用，我们应该尽快尝试与下一个实例对话。</li>
+<li>客户端通过从当前时间减去步骤1中获得的时间戳，计算出获取锁所需的时间。如果并且只有当客户端能够在大多数实例中获得锁，并且获得锁的总时间小于锁的有效期，锁才被认为是获得的。</li>
+<li>如果获得了锁，其有效时间被认为是初始有效时间减去经过的时间</li>
+<li>如果客户端由于某种原因未能获得锁（要么它无法锁定N/2+1个实例，要么有效性时间为负数），它将尝试解锁所有实例（甚至是它认为无法锁定的实例）。</li>
+</ol>
+<p>解释：</p>
+<ol>
+<li>为什么设置多个独立的主站，因为考虑到单点故障问题导致锁无法获取也无法释放</li>
+<li>为什么不能用集群或者主从复制，因为集群的master主键共享，无法创建多个相同的主键，主从复制会导致主节点故障时未能将锁的信息同步给slave，导致从节点上位却不能释放锁。</li>
+</ol>
+<h3 id="2-redisson"><a href="#2-redisson" class="headerlink" title="2. redisson"></a>2. redisson</h3><p>java提供了redisson作为redLock的实现，<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/wiki/8.-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%92%8C%E5%90%8C%E6%AD%A5%E5%99%A8">官网</a></p>
+<p>基于Redis的Redisson红锁<code>RedissonRedLock</code>对象实现了<a target="_blank" rel="noopener" href="http://redis.cn/topics/distlock.html">Redlock</a>介绍的加锁算法。</p>
+<h2 id="五、redis过期淘汰策略"><a href="#五、redis过期淘汰策略" class="headerlink" title="五、redis过期淘汰策略"></a>五、redis过期淘汰策略</h2><h3 id="1-redis内存"><a href="#1-redis内存" class="headerlink" title="1. redis内存"></a>1. redis内存</h3><h4 id="查看最大占用内存"><a href="#查看最大占用内存" class="headerlink" title="查看最大占用内存"></a>查看最大占用内存</h4><p>redis.conf中MEMORY MANAGEMENT模块中</p>
+<p><img src="https://s2.loli.net/2023/04/17/tpSnbJPky3TM2Il.png" alt="image-20230328110915131"></p>
+<p>配置文件没有设置，在redis命令中查看</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看最大内存
+config get maxmemory
+
+# 查看内存使用
+info memory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://s2.loli.net/2023/04/17/gMrPbXy4nqGDQUC.png" alt="image-20230328114421065"></p>
+<p>默认内存为0</p>
+<p>解释：如果redis的最大内存不设置或者为0，在64位的操作系统下不限制内存大小，32位的操作系统下最多使用3GB内存</p>
+<h4 id="设置内存"><a href="#设置内存" class="headerlink" title="设置内存"></a>设置内存</h4><p>如何设置，<strong>一般情况下设置为物理内存的3/4</strong>，设置方法</p>
+<ul>
+<li><p>修改配置文件中的<code>maxmemory &lt;bytes&gt;</code>，记住单位为字节</p>
+</li>
+<li><p>命令修改</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 设置最大内存
+config set maxmemory &lt;bytes&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2-内存占满报错"><a href="#2-内存占满报错" class="headerlink" title="2. 内存占满报错"></a>2. 内存占满报错</h3></li>
+</ul>
+<p><img src="https://s2.loli.net/2023/04/17/R5jfpNmLD3wFrMe.png" alt="image-20230328134754002"></p>
+<p>​    如果key不设置过期时间，在内存占满的情况下报错，为避免上述情况，就出现了过期淘汰策略</p>
+<h3 id="3-淘汰策略"><a href="#3-淘汰策略" class="headerlink" title="3. 淘汰策略"></a>3. 淘汰策略</h3><p>先说一下删除key的方法：</p>
+<ul>
+<li>立即删除，缺点：对cpu不友好，拿时间换空间</li>
+<li>惰性删除，缺点：对内存不友好，拿空间换时间</li>
+<li>定时删除，折中方案，但是删除的频率不好控制，定时删除是定期扫描一部分样本删除过期的key</li>
+</ul>
+<p>都有缺点，所以就有了redis的内存淘汰策略,在redis.conf中的MEMORY MANAGEMENT模块</p>
+<ul>
+<li>LRU：最近最少使用页面置换算法，淘汰最长时间未被使用的页面，看页面最后一次被使用到发生调度的时间长短，首先淘汰最长时间未被使用的页面。</li>
+<li>LFU：最近最不常用页面置换算法，淘汰一定时期内被访问次数最少的页，看一定时间段内页面被使用的频率，淘汰一定时期内被访问次数最少的页</li>
+</ul>
+<p>解释：</p>
+<ol>
+<li>noeviction: 不会驱逐任何key，表示即使内存达到上限也不进行置换，所有能引起内存增加的命令都会返回error（默认）</li>
+<li>allkeys-lru: 对所有key使用LRU算法进行删除，优先删除掉最近最不经常使用的key，用以保存新数据</li>
+<li>volatile-lru: 对所有设置了过期时间的key使用LRU算法进行删除</li>
+<li>allkeys-random: 对所有key随机删除</li>
+<li>volatile-random: 对所有设置了过期时间的key随机删除</li>
+<li>volatile-ttl: 删除马上要过期的key</li>
+<li>allkeys-lfu: 对所有key使用LFU算法进行删除</li>
+<li>volatile-lfu: 对所有设置了过期时间的key使用LFU算法进行删除</li>
+</ol>
+<p>如何选择？</p>
+<p>不确定就选择allkeys-lru，所有key都是最近最经常使用就选择allkeys-lru<br>如果所有key访问概率差不多，则选择allkeys-random</p>
+<h3 id="4-性能建议"><a href="#4-性能建议" class="headerlink" title="4. 性能建议"></a>4. 性能建议</h3><ul>
+<li>避免存储bigkey</li>
+<li>开启惰性淘汰lazyfree-lazy-eviction yes</li>
+</ul>
+<h2 id="六、redis数据结构底层原理"><a href="#六、redis数据结构底层原理" class="headerlink" title="六、redis数据结构底层原理"></a>六、redis数据结构底层原理</h2><h3 id="1-string"><a href="#1-string" class="headerlink" title="1. string"></a>1. string</h3><p>Redis中的string底层采用了简单动态字符串（SDS）的实现。SDS是Redis自己实现的一种字符串类型，相较于C语言中的字符串（以’\0’结尾的字符数组），SDS有以下优势：</p>
+<ol>
+<li>O(1)时间复杂度的获取字符串长度</li>
+<li>杜绝缓冲区溢出</li>
+<li>减少修改字符串时内存重分配的次数</li>
+</ol>
+<p>SDS由以下结构体表示：</p>
+<pre class="line-numbers language-none"><code class="language-none">cCopy codestruct sdshdr {
+    int len; // 记录字符串的长度
+    int free; // 记录未使用的空间的长度
+    char buf[]; // 字符串实际存储的数组
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>SDS通过使用<code>len</code>和<code>free</code>两个变量来实现O(1)时间复杂度的获取字符串长度。其中<code>len</code>变量记录了字符串实际的长度，而<code>free</code>变量记录了未使用的空间的长度。这样，在修改字符串时，只需要检查<code>free</code>变量是否足够，如果不够，就需要进行内存重分配。</p>
+<p>SDS的另一个优点是，它可以动态地扩展和收缩空间，而且扩展和收缩的过程中，只需要在需要的时候分配或者释放额外的空间，而不是每次修改字符串都重新分配空间，这样可以减少内存分配和复制的次数，提高Redis的性能。</p>
+<p>总之，Redis中的string底层采用了SDS的实现，这种实现方式具有优秀的性能和灵活的空间管理能力，是Redis中字符串操作的重要基础。</p>
+<h3 id="2-hash"><a href="#2-hash" class="headerlink" title="2. hash"></a>2. hash</h3><p>hash的两种编码结构：</p>
+<p>​    redis6：ziplist(压缩列表),hashtable</p>
+<p>​    redis7: listpack(紧凑列表),hashtable</p>
+<h4 id="redis6"><a href="#redis6" class="headerlink" title="redis6"></a>redis6</h4><ul>
+<li><strong>hash-max-ziplist-entries：使用压缩列表保存时哈希集合中的最大entrie个数，键值对为一个entrie,默认为512。</strong></li>
+<li><strong>hash-max-ziplist-value：使用压缩列表保存时哈希集合中单个元素的最大长度，单位字节，默认为64</strong></li>
+</ul>
+<p>这是通过<code>config get hash*</code>查看得到的默认配置，当上述两个条件都满足时用ziplist，否则转为hashtable</p>
+<p><strong>为什么使用ziplist？</strong></p>
+<p>为节约内存而开发，采用了紧凑的连续存储。不能存储过多元素，否则查询效率低下，查询效率为log(n)<br>缺点：新增或更新元素可能会出现连锁更新现象(致命缺点导致被listpack替换)。</p>
+<p><strong>为什么不用啥双向链表？</strong></p>
+<p>双向链表存储的是上下两个的地址，压缩列表存储的是上一个 entry的长度和当前entry的长度，存储地址耗费的内存比长度大。</p>
+<h4 id="redis7"><a href="#redis7" class="headerlink" title="redis7"></a>redis7</h4><ul>
+<li><strong>hash-max-listpack-entries：使用压缩列表保存时哈希集合中的最大元素个数。键值对为一个entrie,默认为512。</strong></li>
+<li><strong>hash-max-listpack-value：使用压缩列表保存时哈希集合中单个元素的最大长度。单位字节，默认为64</strong></li>
+</ul>
+<p>通过<code>config get hash*</code>查看的到默认配置，为了兼容redis6，redis7还是保留了ziplist，但是在redis7中最终其作用的是listpack</p>
+<p><strong>什么是listpack？</strong></p>
+<p><img src="https://s2.loli.net/2023/04/17/VQcfDFj9wC4HL3A.png" alt="image-20230403150051731"></p>
+<p> listpack 中每个节点不再包含前一个节点的长度</p>
+<p><strong>为什么从ziplist变为listpack？</strong></p>
+<p>ziplist的连锁更新问题：压缩列表新增某个元素或修改某个元素时，如果空间不不够，压缩列表占用的内存空间就需要重新分配。而当新插入的元素较大时，可能会导致后续元素的 prevlen 占用空间都发生变化（prevlen节点为记录前节点的长度，根据长度会分配不同的内存空间，分别为1字节（长度小于等于254）和5字节（长度大于254）。为什么不是255呢，因为最后的结束标志为1字节，255长度，所以不能用），从而引起「连锁更新」问题，导致每个元素的空间都要重新分配，造成访问压缩列表性能的下降。</p>
+<p>listpack 没有压缩列表中记录前一个节点长度的字段了，listpack 只记录当前节点的长度，当我们向 listpack 加入一个新元素的时候，不会影响其他节点的长度字段的变化，从而避免了压缩列表的连锁更新问题。</p>
+<p><strong>但是redis中默认元素长度大于64就会转为hashtable，那就可以不用担心元素长度大于254时引发的连锁更新的问题。</strong></p>
+<p>妈的，学了个寂寞。除非就是公司通过各方面评估修改了这个默认长度，否则ziplist完全够用。</p>
+<h3 id="3-list"><a href="#3-list" class="headerlink" title="3. list"></a>3. list</h3><p>quicklist就是「双向链表 + 压缩列表」组合，因为一个 quicklist 就是一个链表，而链表中的每个元素又是一个压缩列表</p>
+<p>quicklist 实际上是 zipList 和 linkedList 的混合体，它将 linkedList按段切分，每一段使用 zipList 来紧凑存储，多个 zipList 之间使用双向指针串接起来。</p>
+<p>(1) ziplist压缩配置：list-compress-depth 0</p>
+<p>   表示一个quicklist两端不被压缩的节点个数。这里的节点是指quicklist双向链表的节点，而不是指ziplist里面的数据项个数</p>
+<p>参数list-compress-depth的取值含义如下：</p>
+<p>​    0: 是个特殊值，表示都不压缩。这是Redis的默认值。<br>​    1: 表示quicklist两端各有1个节点不压缩，中间的节点压缩。<br>​    2: 表示quicklist两端各有2个节点不压缩，中间的节点压缩。<br>​    3: 表示quicklist两端各有3个节点不压缩，中间的节点压缩。<br>​    依此类推…</p>
+<p>(2) ziplist中entry配置：list-max-ziplist-size -2</p>
+<p>  当取正值的时候，表示按照数据项个数来限定每个quicklist节点上的ziplist长度。比如，当这个参数配置成5的时候，表示每个quicklist节点的ziplist最多包含5个数据项。当取负值的时候，表示按照占用字节数来限定每个quicklist节点上的ziplist长度。这时，它只能取-1到-5这五个值，</p>
+<p>每个值含义如下：</p>
+<p>-5: 每个quicklist节点上的ziplist大小不能超过64 Kb。（注：1kb =&gt; 1024 bytes）<br>-4: 每个quicklist节点上的ziplist大小不能超过32 Kb。<br>-3: 每个quicklist节点上的ziplist大小不能超过16 Kb。<br>-2: 每个quicklist节点上的ziplist大小不能超过8 Kb。（-2是Redis给出的默认值）<br>-1: 每个quicklist节点上的ziplist大小不能超过4 Kb。</p>
+<h3 id="4-set"><a href="#4-set" class="headerlink" title="4. set"></a>4. set</h3><p>Redis用intset或hashtable存储set。如果元素都是整数类型，就用intset存储。</p>
+<p>如果不是整数类型，就用hashtable（数组+链表的存来储结构）。key就是元素的值，value为null。</p>
+<h3 id="5-zset"><a href="#5-zset" class="headerlink" title="5. zset"></a>5. zset</h3><ul>
+<li>redis6: ziplist与skiplist（跳表）</li>
+<li>redis7: listpack与skiplist(跳表)</li>
+</ul>
+<p>当有序集合中包含的元素数量超过服务器属性 server.zset_max_ziplist_entries 的值（默认值为 128 ），</p>
+<p>或者有序集合中新添加元素的 member 的长度大于服务器属性 server.zset_max_ziplist_value 的值（默认值为 64 ）时</p>
+<p>redis会使用跳跃表作为有序集合的底层实现。</p>
+<p>否则会使用ziplist作为有序集合的底层实现</p>
+<h4 id="跳表-ziplist"><a href="#跳表-ziplist" class="headerlink" title="跳表(ziplist)"></a>跳表(ziplist)</h4><p>一般链表查询的时间复杂度为O(n)，为了优化查询的时间，于是就有了跳表。</p>
+<p>skiplist是一种以空间换取时间的结构。</p>
+<p>由于链表，无法进行二分查找，因此借鉴数据库索引的思想，提取出链表中关键节点（索引），先在关键节点上查找，再进入下层链表查找，提取多层关键节点，就形成了跳跃表</p>
+<p><strong>优点：</strong></p>
+<p>跳表是一个最典型的空间换时间解决方案，而且只有在数据量较大的情况下才能体现出来优势。而且应该是读多写少的情况下才能使用，所以它的适用范围应该还是比较有限的</p>
+<p><strong>缺点：</strong> </p>
+<p>维护成本相对要高，</p>
+<p>在单链表中，一旦定位好要插入的位置，插入结点的时间复杂度是很低的，就是O(1) </p>
+<p>but</p>
+<p>新增或者删除时需要把所有索引都更新一遍，为了保证原始链表中数据的有序性，我们需要先找</p>
+<p>到要动作的位置，这个查找操作就会比较耗时最后在新增和删除的过程中的更新，时间复杂度也是O(log n)</p>
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p><img src="https://s2.loli.net/2023/04/17/M6EOH1wR2TmbAzp.png" alt="image-20230403155249159"></p>
+<ol>
+<li><p>字符串</p>
+<ul>
+<li><p>int:8个字节的长整型。</p>
+</li>
+<li><p>embstr:小于等于44个字节的字符串。</p>
+</li>
+<li><p>raw:大于44个字节的字符串。</p>
+</li>
+<li><p>Redis会根据当前值的类型和长度决定使用哪种内部编码实现。</p>
+</li>
+</ul>
+</li>
+<li><p>哈希</p>
+<ul>
+<li><p>ziplist(压缩列表):当哈希类型元素个数小于hash-max-ziplist-entries 配置(默认512个)、同时所有值都小于hash-max-ziplist-value配置(默认64 字节)时，</p>
+</li>
+<li><p>Redis会使用ziplist作为哈希的内部实现，ziplist使用更加紧凑的 结构实现多个元素的连续存储，所以在节省内存方面比hashtable更加优秀。</p>
+</li>
+<li><p>hashtable(哈希表):当哈希类型无法满足ziplist的条件时，Redis会使 用hashtable作为哈希的内部实现，因为此时ziplist的读写效率会下降，而hashtable的读写时间复杂度为O(1)。</p>
+</li>
+</ul>
+</li>
+<li><p>列表</p>
+<ul>
+<li><p>ziplist(压缩列表):当列表的元素个数小于list-max-ziplist-entries配置 (默认512个)，同时列表中每个元素的值都小于list-max-ziplist-value配置时 (默认64字节)，</p>
+</li>
+<li><p>Redis会选用ziplist来作为列表的内部实现来减少内存的使 用。</p>
+</li>
+<li><p>linkedlist(链表):当列表类型无法满足ziplist的条件时，Redis会使用 linkedlist作为列表的内部实现。quicklist ziplist和linkedlist的结合以ziplist为节点的链表(linkedlist)</p>
+</li>
+</ul>
+</li>
+<li><p>集合</p>
+<ul>
+<li><p>intset(整数集合):当集合中的元素都是整数且元素个数小于set-max-intset-entries配置(默认512个)时，Redis会用intset来作为集合的内部实现，从而减少内存的使用。</p>
+</li>
+<li><p>hashtable(哈希表):当集合类型无法满足intset的条件时，Redis会使用hashtable作为集合的内部实现。</p>
+</li>
+</ul>
+</li>
+<li><p>有序集合</p>
+<ul>
+<li><p>ziplist(压缩列表):当有序集合的元素个数小于zset-max-ziplist- entries配置(默认128个)，同时每个元素的值都小于zset-max-ziplist-value配 置(默认64字节)时，</p>
+</li>
+<li><p>Redis会用ziplist来作为有序集合的内部实现，ziplist 可以有效减少内存的使用。</p>
+</li>
+<li><p>skiplist(跳跃表):当ziplist条件不满足时，有序集合会使用skiplist作 为内部实现，因为此时ziplist的读写效率会下降。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">liuxin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/">https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">liuxin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/09/18/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuxin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/03/2023-03-03-redis-pian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="redis篇">
+                        
+                        <span class="card-title">redis篇</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuxin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2023</span>
+            
+            <a href="/about" target="_blank">liuxin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">189.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://gitee.com/XXZXD" class="tooltipped" target="_blank" data-tooltip="访问我的Gitee" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:1819001592@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1819001592" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1819001592" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://juejin.cn/user/2450127247382888" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: " data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
