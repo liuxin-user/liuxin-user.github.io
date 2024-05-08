@@ -577,7 +577,7 @@ OSI七层模型物理层
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-09
+                    2023-11-10
                 </div>
                 
 
@@ -612,7 +612,7 @@ OSI七层模型物理层
                 <h1 id="计算机网络核心知识点"><a href="#计算机网络核心知识点" class="headerlink" title="计算机网络核心知识点"></a>计算机网络核心知识点</h1><blockquote>
 <p>作者：月伴飞鱼，转载链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw">https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw</a></p>
 </blockquote>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-608345cf-8378-4b34-bc91-ca6d2fa25da7.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/sLOnUaRdyXJzfT4.png"></p>
 <h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p><strong>物理层</strong></p>
 <p>首先解决两台物理机之间的通信需求，具体就是机器A往机器B发送比特流，机器B能收到比特流。</p>
 <p>物理层主要定义了物理设备的标准，如网线的类型，光纤的接口类型，各种传输介质的传输速率。</p>
@@ -653,7 +653,7 @@ OSI七层模型物理层
 <p>三层网络层数据被称做<strong>包</strong>（Packages）；</p>
 <p>二层数据链路层时数据被称为<strong>帧</strong>（Frames）；</p>
 <p>一层物理层时数据被称为<strong>比特流</strong>（Bits）。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d1fdc5fc-c955-4591-9c95-e297a64eccdc.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/tq6Q5jzfvA3XsDY.png"></p>
 <h2 id="TCP和IP模型"><a href="#TCP和IP模型" class="headerlink" title="TCP和IP模型"></a>TCP和IP模型</h2><p>OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实现协议应该开发哪种程序</p>
 <p><strong>TCP/IP划分了四层网络模型</strong></p>
 <ul>
@@ -662,7 +662,7 @@ OSI七层模型物理层
 <li>第三层：网络层，主要是IP协议。主要负责寻址（找到目标设备的位置）</li>
 <li>第四层：数据链路层，主要是负责转换数字信号和物理二进制信号。</li>
 </ul>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-fa4a4d20-f0db-4ba7-a31e-7772f2f132a8.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/dXjLo1AWn2kr4yu.png"></p>
 <p><strong>四层网络协议的作用</strong></p>
 <ul>
 <li>发送端是由上至下，把上层来的数据在头部加上各层协议的数据（部首）再下发给下层。</li>
@@ -675,11 +675,11 @@ OSI七层模型物理层
 <p>在传输层，TCP协议会将HTTP协议发送的数据看作一个数据包，并在这个数据包前面加上TCP包的一部分信息（部首）</p>
 <p>在网络层，IP协议会将TCP协议要发送的数据看作一个数据包，同样的在这个数据包前端加上IP协议的部首</p>
 <p>在数据链路层，对应的协议也会在IP数据包前端加上以太网的部首。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-1d3ce227-fd77-4b95-89dd-aeb786bb4b9e.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/R3bw62vO41qxW5F.png"></p>
 <p>源设备和目标设备通过网线连接，就可以通过物理层的二进制传输数据。</p>
 <p>数据链路层，会使用对应的协议找到物理层的二进制数据，解码得到以太网的部首信息和对应的IP数据包，再将IP数据包传给上层的网络层。</p>
 <p>数据链路层&gt;网络层&gt;传输层&gt;应用层，一层层的解码，最后就可以在浏览器中得到目标设备传送过来的<strong>index.html</strong>。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-731f7daa-1b47-4191-828f-c6e54d650604.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/Q7HNKYGqsbyEPXJ.png"></p>
 <p><strong>TCP/IP协议族</strong></p>
 <p>从字面意义上来讲，TCP/IP是指<strong>传输层</strong>的TCP协议和<strong>网络层</strong>的IP协议。</p>
 <p>实际上，TCP/IP只是利用 IP 进行通信时所必须用到的协议群的统称。</p>
@@ -884,7 +884,7 @@ OSI七层模型物理层
 <p><strong>工作原理</strong></p>
 <p>HTTPS 协议会对传输的数据进行加密，而加密过程是使用了非对称加密实现</p>
 <p>HTTPS的整体过程分为证书验证和数据传输阶段，具体的交互过程如下：</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-c1db0431-0eee-4c80-bb60-b7508a306864.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/l9zweSp54hTRcdX.png"></p>
 <ul>
 <li>Client发起一个HTTPS的请求</li>
 <li>Server把事先配置好的公钥证书返回给客户端。</li>
@@ -901,10 +901,10 @@ OSI七层模型物理层
 </blockquote>
 <p>所以这里就需要借助第三方权威机构 CA （数字证书认证机构），将<strong>服务器公钥放在数字证书</strong>（由数字证书认证机构颁发）中，只要证书是可信的，公钥就是可信的。</p>
 <p>通过数字证书的方式保证服务器公钥的身份，解决冒充的风险。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-45917c49-bb08-4f88-84d2-5e8ae53acc7c.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/PGvj3ng6YRhJOTb.png"></p>
 <h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><strong>请求头</strong></p>
 <p>HTTP 请求报文由3部分组成(请求行+请求头+请求体)</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3c00598c-43c2-44cd-96c6-ee4d40b97abd.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/pEukm9cYAWQ6hwr.png"></p>
 <p><strong>常见的HTTP报文头属性</strong></p>
 <ul>
 <li>Accpet<ul>
@@ -941,7 +941,7 @@ OSI七层模型物理层
 <li>非持久连接，事务完成后关闭网络连接： <code>Connection: close</code>　</li>
 </ul>
 <h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p>响应报文与请求报文一样，由三个部分组成(响应行,响应头,响应体)</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-58884113-14dc-4cca-a63e-3320f31a4da5.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/7olqdrnIEZkvXVm.png"></p>
 <p><strong>HTTP响应报文属性</strong></p>
 <ul>
 <li>Cache-Control<ul>
@@ -999,7 +999,7 @@ OSI七层模型物理层
 <li>故 TCP首部最小长度 = 20字节</li>
 </ol>
 </blockquote>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-8011660d-24c8-460f-ac3d-b97ad9c99b13.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/cuVWrnizvkJa6jO.png"></p>
 <p><strong>端口</strong>：</p>
 <p>源端口号和目地端口各占16位两个字节，也就是端口的范围是<code>2^16=65535</code></p>
 <p>另外1024以下是系统保留的，从1024-65535是用户使用的端口范围</p>
@@ -1043,7 +1043,7 @@ OSI七层模型物理层
 <li><p>将消息分为消息头和消息尾两部分，消息头指定数据长度，根据消息长度来读取完整的消息，例如UDP协议是这么设计的，用两个字节来表示消息长度，所以UDP不存在粘包和拆包问题。</p>
 </li>
 </ul>
-<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-f6a9438e-4eb8-4573-9ef5-30e07b8c31df.png"></p>
+<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p><img src="https://s2.loli.net/2023/11/09/qJX4g7tUeamn8xM.png"></p>
 <p><strong>第一次握手</strong>：</p>
 <p>客户端将TCP报文标志位<code>SYN</code>置为1，随机产生一个序号值<code>seq=J</code>，保存在TCP首部的序列号字段里，指明客户端打算连接的服务器的端口，并将该数据包发送给服务器端，发送完毕后，客户端进入<code>SYN_SENT</code>状态，等待服务器端确认。</p>
 <p><strong>第二次握手</strong>：</p>
@@ -1082,7 +1082,7 @@ OSI七层模型物理层
 <p>其实第三次握手的时候，是可以携带数据的，也就是说，第一次、第二次握手不可以携带数据，而第三次握手是可以携带数据的。</p>
 <p>假如第一次握手可以携带数据的话，如果有人要恶意攻击服务器，那他每次都在第一次握手中的 SYN 报文中放入大量的数据，因为攻击者根本就不理服务器的接收、发送能力是否正常，然后疯狂着重复发 SYN 报文的话，这会让服务器花费很多时间、内存空间来接收这些报文。也就是说，第一次握手可以放数据的话，其中一个简单的原因就是会让服务器更加容易受到攻击了。</p>
 <p>而对于第三次的话，此时客户端已经处于 established 状态，也就是说，对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据没啥毛病。</p>
-<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4a5e455f-5cf8-47a6-8fe4-a4c83a445f77.png"></p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p><img src="https://s2.loli.net/2023/11/09/nTEW9KlFm6tgD2u.png"></p>
 <p>挥手请求可以是Client端，也可以是Server端发起的，我们假设是Client端发起：</p>
 <ul>
 <li><p>第一次挥手： Client端发起挥手请求，向Server端发送标志位是FIN报文段，设置序列号seq，此时，Client端进入<code>FIN_WAIT_1</code>状态，这表示Client端没有数据要发送给Server端了。</p>
@@ -1124,7 +1124,7 @@ OSI七层模型物理层
 <p>发送窗口和接收窗口的序号的上下界不一定要一样，甚至大小也可以不同。</p>
 <p>不同的滑动窗口协议窗口大小一般不同。</p>
 <p>发送方窗口内的序列号代表了那些已经被发送，但是还没有被确认的帧，或者是那些可以被发送的帧</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d734c97b-d7d6-4af6-8674-524a81fb4dbe.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/sLuR4YCifxTZ7vU.png"></p>
 <p>滑动窗口由四部分组成每个字节的数据都有唯一顺序的编码，随着时间发展，未确认部分与可以发送数据包编码部分向右移动，形式滑动窗口</p>
 <ol>
 <li><code>绿色</code>：发送成功并已经ACK确认的数据</li>
@@ -1142,7 +1142,7 @@ OSI七层模型物理层
 <p><strong>如何实现流量控制</strong></p>
 <p>由滑动窗口协议（连续ARQ协议）实现。滑动窗口协议既保证了分组无差错、有序接收，也实现了流量控制。</p>
 <p>主要的方式就是接收方返回的 ACK 中会包含自己的接收窗口的大小，并且利用大小来控制发送方的数据发送。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4bdc0051-8878-4ffc-b9db-71b73ec49cd0.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/8CkI3T6NiEDaGjo.png"></p>
 <p><strong>流量控制引发的死锁</strong></p>
 <p>当发送者收到了一个窗口为0的应答，发送者便停止发送，等待接收者的下一个应答。</p>
 <p>但是如果这个窗口不为0的应答在传输过程丢失，发送者一直等待下去，而接收者以为发送者已经收到该应答，等待接收新数据，这样双方就相互等待，从而产生死锁。</p>
@@ -1195,7 +1195,7 @@ OSI七层模型物理层
 <p>假定cwnd=24时，网络出现超时（拥塞），则更新后的ssthresh=12，cwnd重新设置为1，并执行慢开始算法。</p>
 <p>当cwnd=12=ssthresh时，改为执行拥塞避免算法</p>
 <p>注意：拥塞避免并非完全能够避免了阻塞，而是使网络比较不容易出现拥塞。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-314eba07-1388-4e8b-9307-8dd8d03b0dfe.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/eFtlnqdCKjR361P.png"></p>
 <p><strong>快重传算法</strong></p>
 <p>快重传要求接收方在收到一个失序的报文段后就立即发出重复确认（为的是使发送方及早知道有报文段没有到达对方，可提高网络吞吐量约20%）而不要等到自己发送数据时捎带确认。</p>
 <p>快重传算法规定，发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期</p>
@@ -1209,9 +1209,9 @@ OSI七层模型物理层
 </ul>
 <p>考虑到如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。</p>
 <p>所以此时不执行慢开始算法，而是将cwnd设置为ssthresh减半后的值，然后执行拥塞避免算法，使cwnd缓慢增大。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3a424e43-405f-494d-b700-093781b63035.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/tSJGZvu4K9QpNjm.png"></p>
 <h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p>即套接字，是应用层 与 <code>TCP/IP</code> 协议族通信的中间软件抽象层，表现为一个封装了 TCP / IP协议族 的编程接口（API）</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-eff20ef6-9d35-4075-8c53-ab52c7a46ac7.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/lHk3DRAY2heaPzw.png"></p>
 <p><code>Socket</code>不是一种协议，而是一个编程调用接口（<code>API</code>），属于传输层（主要解决数据如何在网络中传输）</p>
 <p>对用户来说，只需调用Socket去组织数据，以符合指定的协议，即可通信</p>
 <h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p><strong>UDP协议特点</strong></p>
@@ -1252,7 +1252,7 @@ OSI七层模型物理层
 <p>HTTP、HTTPS、FTP、TELNET、SMTP(简单邮件传输协议)协议基于可靠的TCP协议。</p>
 <p>TFTP、DNS、DHCP、TFTP、SNMP(简单网络管理协议)、RIP基于不可靠的UDP协议</p>
 <h3 id="报文段-1"><a href="#报文段-1" class="headerlink" title="报文段"></a>报文段</h3><p>UDP的报文段共有2个字段：数据字段 + 首部字段</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-a5d0d209-01db-4ee7-b63b-bf2659545702.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/Ij8MCdofJwgZneA.png"></p>
 <p><strong>UDP报文中每个字段的含义如下：</strong></p>
 <ul>
 <li>源端口：这个字段占据 UDP 报文头的前 16 位，通常包含发送数据报的应用程序所使用的 UDP 端口，接收端的应用程序利用这个字段的值作为发送响应的目的地址，这个字段是可选的，所以发送端的应用程序不一定会把自己的端口号写入该字段中，如果不写入端口号，则把这个字段设置为 0，这样，接收端的应用程序就不能发送响应了。</li>
@@ -1281,7 +1281,7 @@ OSI七层模型物理层
 <p>通过设置网络地址和主机地址，在互相连接的整个网络中保证每台主机的IP地址不会互相重叠，即IP地址具有了唯一性。</p>
 <p><strong>IP地址分类详解</strong></p>
 <p>IP地址分A、B、C、D、E五类，其中A、B、C这三类是比较常用的IP地址，D、E类为特殊地址。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-212f3f9b-b07f-4cc9-81eb-55bb478f1b66.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/qAzrxBbGRceFUt8.png"></p>
 <h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p><strong>子网掩码的概念及作用</strong></p>
 <p>通过子网掩码，才能表明一台主机所在的子网与其他子网的关系，使网络正常工作。</p>
 <p>子网掩码和IP地址做与运算，分离出IP地址中的网络地址和主机地址，用于判断该IP地址是在本地网络上，还是在远程网络网上。</p>
@@ -1308,7 +1308,7 @@ OSI七层模型物理层
 </blockquote>
 <p>在如下拓扑图示例中，A与B，C与D，都可以直接相互通信（都是属于各自同一网段，不用经过路由器）</p>
 <p>但是A与C，A与D，B与C，B与D它们之间不属于同一网段，所以它们通信是要经过本地网关，然后路由器根据对方IP地址，在路由表中查找恰好有匹配到对方IP地址的直连路由，于是从另一边网关接口转发出去实现互连</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-e1d68baa-9d8c-4595-bcb5-0dc5f6e240fe.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/9xCMzNKBfHA8SUs.png"></p>
 <p><strong>子网掩码和IP地址的关系</strong></p>
 <p>子网掩码是用来判断任意两台主机的IP地址是否属于同一网络的依据</p>
 <p>拿双方主机的IP地址和自己主机的子网掩码做与运算，如结果为同一网络，就可以直接通信</p>
@@ -1316,7 +1316,7 @@ OSI七层模型物理层
 <p>将IP地址与子网掩码转换成二进制数。</p>
 <p>将二进制形式的 IP 地址与子网掩码做与运算。</p>
 <p>将得出的结果转化为十进制，便得到网络地址。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-5fab32f0-20d1-4c05-bfb9-47928ceac65d.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/UJCXkqxuHdG7DyA.png"></p>
 <h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><p>网关实质上是一个网络通向其他网络的IP地址。</p>
 <p>比如有网络A和网络B，网络A的IP地址范围为<code>192.168.1.1~192. 168.1.254</code>，子网掩码为<code>255.255.255.0</code>；</p>
 <p>网络B的IP地址范围为<code>192.168.2.1~192.168.2.254</code>，子网掩码为<code>255.255.255.0</code>。</p>
@@ -1363,8 +1363,8 @@ OSI七层模型物理层
 <p><strong>通俗的讲</strong>，我们更习惯于记住一个网站的名字，<a href="http://www.baidu.com，而不是记住它的ip地址，比如：167.23.10.2">www.baidu.com，而不是记住它的ip地址，比如：167.23.10.2</a></p>
 <p><strong>工作原理</strong></p>
 <p>将主机域名转换为ip地址，属于应用层协议，使用UDP传输。</p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-7d129644-dfa7-4151-ae2f-9f3f084c6be9.png"></p>
-<p><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4ed70ed6-ceeb-4761-8fd4-eb2fe092273d.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/kbRDVwKdIQ9ileN.png"></p>
+<p><img src="https://s2.loli.net/2023/11/09/BOM1rVEH3CXSeUf.png"></p>
 <p>第一步，客户端向本地DNS服务器发送解析请求</p>
 <p>第二步，本地DNS如有相应记录会直接返回结果给客户端，如没有就向DNS根服务器发送请求</p>
 <p>第三步,DSN根服务器接收到请求，返回给本地服务器一个所查询域的主域名服务器的地址</p>
@@ -1596,7 +1596,7 @@ a.com.&nbsp;&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NS&nbsp;&nbsp;&n
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/">https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/</a>
+                    <a href="https://liuxin-user.github.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/">https://liuxin-user.github.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2014,7 +2014,7 @@ a.com.&nbsp;&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NS&nbsp;&nbsp;&n
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2023</span>
+                <span id="year">2021-2024</span>
             
             <a href="/about" target="_blank">liuxin</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

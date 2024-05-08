@@ -3,11 +3,11 @@
   <title>Xin</title>
   
   
-  <link href="https://xxzxd.gitee.io/atom.xml" rel="self"/>
+  <link href="https://liuxin-user.github.io/atom.xml" rel="self"/>
   
-  <link href="https://xxzxd.gitee.io/"/>
-  <updated>2023-10-09T07:10:25.757Z</updated>
-  <id>https://xxzxd.gitee.io/</id>
+  <link href="https://liuxin-user.github.io/"/>
+  <updated>2023-10-09T07:25:51.730Z</updated>
+  <id>https://liuxin-user.github.io/</id>
   
   <author>
     <name>liuxin</name>
@@ -18,48 +18,48 @@
   
   <entry>
     <title>PDF资源</title>
-    <link href="https://xxzxd.gitee.io/2023/10/09/2099-01-01-pdf-zi-yuan/"/>
-    <id>https://xxzxd.gitee.io/2023/10/09/2099-01-01-pdf-zi-yuan/</id>
+    <link href="https://liuxin-user.github.io/2023/10/09/2099-01-01-pdf-zi-yuan/"/>
+    <id>https://liuxin-user.github.io/2023/10/09/2099-01-01-pdf-zi-yuan/</id>
     <published>2023-10-09T06:57:01.960Z</published>
-    <updated>2023-10-09T07:10:25.757Z</updated>
+    <updated>2023-10-09T07:25:51.730Z</updated>
     
     
     <summary type="html">收录一些pdf的资源，不做商用</summary>
     
     
     
-    <category term="java" scheme="https://xxzxd.gitee.io/categories/java/"/>
+    <category term="java" scheme="https://liuxin-user.github.io/categories/java/"/>
     
     
-    <category term="资源" scheme="https://xxzxd.gitee.io/tags/%E8%B5%84%E6%BA%90/"/>
+    <category term="资源" scheme="https://liuxin-user.github.io/tags/%E8%B5%84%E6%BA%90/"/>
     
   </entry>
   
   <entry>
     <title>操作系统核心知识点大梳理</title>
-    <link href="https://xxzxd.gitee.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/"/>
-    <id>https://xxzxd.gitee.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/</id>
+    <link href="https://liuxin-user.github.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/"/>
+    <id>https://liuxin-user.github.io/2023/10/09/2023-10-09-ji-suan-ji-ji-chu/</id>
     <published>2023-10-09T02:11:53.487Z</published>
-    <updated>2023-10-09T02:12:29.289Z</updated>
+    <updated>2023-11-10T10:26:04.214Z</updated>
     
     
     <summary type="html">转载链接：https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ</summary>
     
     
     
-    <category term="计算机基础" scheme="https://xxzxd.gitee.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://liuxin-user.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="操作系统" scheme="https://xxzxd.gitee.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://liuxin-user.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/"/>
-    <id>https://xxzxd.gitee.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/</id>
+    <link href="https://liuxin-user.github.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/"/>
+    <id>https://liuxin-user.github.io/2023/10/09/2023-10-09-wang-luo-zhi-shi/</id>
     <published>2023-10-09T02:09:38.608Z</published>
-    <updated>2023-10-09T02:11:20.704Z</updated>
+    <updated>2023-11-10T10:30:13.945Z</updated>
     
     
       
@@ -73,17 +73,17 @@
     
     
     
-    <category term="计算机基础" scheme="https://xxzxd.gitee.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://liuxin-user.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="计算机网络" scheme="https://xxzxd.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://liuxin-user.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Mysql安装</title>
-    <link href="https://xxzxd.gitee.io/2023/09/18/mysql-an-zhuang/"/>
-    <id>https://xxzxd.gitee.io/2023/09/18/mysql-an-zhuang/</id>
+    <link href="https://liuxin-user.github.io/2023/09/18/mysql-an-zhuang/"/>
+    <id>https://liuxin-user.github.io/2023/09/18/mysql-an-zhuang/</id>
     <published>2023-09-18T12:05:08.667Z</published>
     <updated>2021-03-10T09:21:18.000Z</updated>
     
@@ -104,8 +104,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://xxzxd.gitee.io/2023/09/18/hello-world/"/>
-    <id>https://xxzxd.gitee.io/2023/09/18/hello-world/</id>
+    <link href="https://liuxin-user.github.io/2023/09/18/hello-world/"/>
+    <id>https://liuxin-user.github.io/2023/09/18/hello-world/</id>
     <published>2023-09-18T12:05:08.637Z</published>
     <updated>2021-01-26T05:22:56.000Z</updated>
     
@@ -125,8 +125,8 @@
   
   <entry>
     <title>redis高阶</title>
-    <link href="https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/"/>
-    <id>https://xxzxd.gitee.io/2023/03/22/2023-03-22-redis-gao-jie/</id>
+    <link href="https://liuxin-user.github.io/2023/03/22/2023-03-22-redis-gao-jie/"/>
+    <id>https://liuxin-user.github.io/2023/03/22/2023-03-22-redis-gao-jie/</id>
     <published>2023-03-21T16:00:00.000Z</published>
     <updated>2023-09-20T10:29:40.526Z</updated>
     
@@ -146,8 +146,8 @@
   
   <entry>
     <title>redis篇</title>
-    <link href="https://xxzxd.gitee.io/2023/03/03/2023-03-03-redis-pian/"/>
-    <id>https://xxzxd.gitee.io/2023/03/03/2023-03-03-redis-pian/</id>
+    <link href="https://liuxin-user.github.io/2023/03/03/2023-03-03-redis-pian/"/>
+    <id>https://liuxin-user.github.io/2023/03/03/2023-03-03-redis-pian/</id>
     <published>2023-03-02T16:00:00.000Z</published>
     <updated>2023-09-19T17:02:26.615Z</updated>
     
@@ -168,8 +168,8 @@
   
   <entry>
     <title>webSocket篇</title>
-    <link href="https://xxzxd.gitee.io/2022/07/13/2022-07-13-websocket-pian/"/>
-    <id>https://xxzxd.gitee.io/2022/07/13/2022-07-13-websocket-pian/</id>
+    <link href="https://liuxin-user.github.io/2022/07/13/2022-07-13-websocket-pian/"/>
+    <id>https://liuxin-user.github.io/2022/07/13/2022-07-13-websocket-pian/</id>
     <published>2022-07-12T16:00:00.000Z</published>
     <updated>2022-07-13T15:31:08.000Z</updated>
     
@@ -189,8 +189,8 @@
   
   <entry>
     <title>多线程篇</title>
-    <link href="https://xxzxd.gitee.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/"/>
-    <id>https://xxzxd.gitee.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/</id>
+    <link href="https://liuxin-user.github.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/"/>
+    <id>https://liuxin-user.github.io/2022/07/08/2022-07-08-duo-xian-cheng-pian/</id>
     <published>2022-07-07T16:00:00.000Z</published>
     <updated>2023-09-19T17:02:26.151Z</updated>
     
@@ -210,8 +210,8 @@
   
   <entry>
     <title>树篇</title>
-    <link href="https://xxzxd.gitee.io/2022/07/04/2022-07-04-shu-pian/"/>
-    <id>https://xxzxd.gitee.io/2022/07/04/2022-07-04-shu-pian/</id>
+    <link href="https://liuxin-user.github.io/2022/07/04/2022-07-04-shu-pian/"/>
+    <id>https://liuxin-user.github.io/2022/07/04/2022-07-04-shu-pian/</id>
     <published>2022-07-03T16:00:00.000Z</published>
     <updated>2022-07-13T15:31:16.000Z</updated>
     
@@ -232,8 +232,8 @@
   
   <entry>
     <title>GC篇</title>
-    <link href="https://xxzxd.gitee.io/2022/06/29/2022-06-29-gc-pian/"/>
-    <id>https://xxzxd.gitee.io/2022/06/29/2022-06-29-gc-pian/</id>
+    <link href="https://liuxin-user.github.io/2022/06/29/2022-06-29-gc-pian/"/>
+    <id>https://liuxin-user.github.io/2022/06/29/2022-06-29-gc-pian/</id>
     <published>2022-06-28T16:00:00.000Z</published>
     <updated>2023-09-19T17:02:25.728Z</updated>
     
@@ -253,8 +253,8 @@
   
   <entry>
     <title>JVM篇</title>
-    <link href="https://xxzxd.gitee.io/2022/06/28/2022-06-28-jvm-pian/"/>
-    <id>https://xxzxd.gitee.io/2022/06/28/2022-06-28-jvm-pian/</id>
+    <link href="https://liuxin-user.github.io/2022/06/28/2022-06-28-jvm-pian/"/>
+    <id>https://liuxin-user.github.io/2022/06/28/2022-06-28-jvm-pian/</id>
     <published>2022-06-27T16:00:00.000Z</published>
     <updated>2022-06-28T11:56:38.000Z</updated>
     
@@ -274,8 +274,8 @@
   
   <entry>
     <title>springOauth2</title>
-    <link href="https://xxzxd.gitee.io/2022/06/22/2022-06-22-springauth2/"/>
-    <id>https://xxzxd.gitee.io/2022/06/22/2022-06-22-springauth2/</id>
+    <link href="https://liuxin-user.github.io/2022/06/22/2022-06-22-springauth2/"/>
+    <id>https://liuxin-user.github.io/2022/06/22/2022-06-22-springauth2/</id>
     <published>2022-06-21T16:00:00.000Z</published>
     <updated>2023-09-19T17:02:25.439Z</updated>
     
@@ -295,8 +295,8 @@
   
   <entry>
     <title>ElasticSearch</title>
-    <link href="https://xxzxd.gitee.io/2022/04/12/elastic-search/"/>
-    <id>https://xxzxd.gitee.io/2022/04/12/elastic-search/</id>
+    <link href="https://liuxin-user.github.io/2022/04/12/elastic-search/"/>
+    <id>https://liuxin-user.github.io/2022/04/12/elastic-search/</id>
     <published>2022-04-12T02:50:03.000Z</published>
     <updated>2023-09-19T17:02:27.479Z</updated>
     
@@ -316,8 +316,8 @@
   
   <entry>
     <title>KKB项目</title>
-    <link href="https://xxzxd.gitee.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/"/>
-    <id>https://xxzxd.gitee.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/</id>
+    <link href="https://liuxin-user.github.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/"/>
+    <id>https://liuxin-user.github.io/2021/09/05/kkb-jie-dan-ping-tai-zong-jie/</id>
     <published>2021-09-05T11:52:10.000Z</published>
     <updated>2021-09-05T11:52:20.000Z</updated>
     
@@ -337,8 +337,8 @@
   
   <entry>
     <title>Spring-Cloud</title>
-    <link href="https://xxzxd.gitee.io/2021/05/26/spring-cloud/"/>
-    <id>https://xxzxd.gitee.io/2021/05/26/spring-cloud/</id>
+    <link href="https://liuxin-user.github.io/2021/05/26/spring-cloud/"/>
+    <id>https://liuxin-user.github.io/2021/05/26/spring-cloud/</id>
     <published>2021-05-26T08:15:13.000Z</published>
     <updated>2021-06-27T09:34:24.000Z</updated>
     
@@ -358,8 +358,8 @@
   
   <entry>
     <title>SpringMVC</title>
-    <link href="https://xxzxd.gitee.io/2021/05/21/spring-mvc/"/>
-    <id>https://xxzxd.gitee.io/2021/05/21/spring-mvc/</id>
+    <link href="https://liuxin-user.github.io/2021/05/21/spring-mvc/"/>
+    <id>https://liuxin-user.github.io/2021/05/21/spring-mvc/</id>
     <published>2021-05-21T11:15:36.000Z</published>
     <updated>2021-06-27T09:35:22.000Z</updated>
     
@@ -379,8 +379,8 @@
   
   <entry>
     <title>Spring-boot</title>
-    <link href="https://xxzxd.gitee.io/2021/05/18/spring-boot/"/>
-    <id>https://xxzxd.gitee.io/2021/05/18/spring-boot/</id>
+    <link href="https://liuxin-user.github.io/2021/05/18/spring-boot/"/>
+    <id>https://liuxin-user.github.io/2021/05/18/spring-boot/</id>
     <published>2021-05-18T11:25:13.000Z</published>
     <updated>2021-06-27T09:32:54.000Z</updated>
     
@@ -401,8 +401,8 @@
   
   <entry>
     <title>Mybatis</title>
-    <link href="https://xxzxd.gitee.io/2021/05/16/mybatis-ji-chu/"/>
-    <id>https://xxzxd.gitee.io/2021/05/16/mybatis-ji-chu/</id>
+    <link href="https://liuxin-user.github.io/2021/05/16/mybatis-ji-chu/"/>
+    <id>https://liuxin-user.github.io/2021/05/16/mybatis-ji-chu/</id>
     <published>2021-05-16T10:25:03.000Z</published>
     <updated>2021-06-27T10:06:44.000Z</updated>
     
@@ -422,8 +422,8 @@
   
   <entry>
     <title>Nosql</title>
-    <link href="https://xxzxd.gitee.io/2021/05/11/nosql-ji-chu/"/>
-    <id>https://xxzxd.gitee.io/2021/05/11/nosql-ji-chu/</id>
+    <link href="https://liuxin-user.github.io/2021/05/11/nosql-ji-chu/"/>
+    <id>https://liuxin-user.github.io/2021/05/11/nosql-ji-chu/</id>
     <published>2021-05-11T11:25:13.000Z</published>
     <updated>2021-06-27T09:29:58.000Z</updated>
     
